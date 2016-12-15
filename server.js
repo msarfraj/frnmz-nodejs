@@ -4,7 +4,7 @@ var connect = require('connect');
 var favicon = require('serve-favicon');
 var path    = require('path');
 var app      = express();
-var port     = process.env.PORT || 5000;
+var port     = process.env.PORT || 8080;
 var cookieParser = require('cookie-parser');
 // Configuration
 app.use(cookieParser());

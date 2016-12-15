@@ -15,7 +15,13 @@ exports.password = '182d894d';
 exports.database = 'heroku_9d88e519e560328';
 */
 //local
-exports.host = 'localhost';
+/*exports.host = 'localhost';
 exports.user = 'node_user';
 exports.password = 'node123';
 exports.database = 'node_test_db';
+*/
+//OC
+exports.host = 'mysql://nodemysql:3306/';
+exports.user = 'nodeuser';
+exports.password = 'node@user';
+exports.database = 'nodetestdb';
