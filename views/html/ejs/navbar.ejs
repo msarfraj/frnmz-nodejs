@@ -1,0 +1,13 @@
+ <ul class="topnav">
+<li> <a class="active" href="/">FRNMZ</a></li>
+                <li >
+<% if(request.session.user){ %>
+<a href="/logout">Logout</a>
+<% }else{ %>
+<a href="/dologin">Login</a>
+<% } %>
+</li>
+                <li ><a href="/doregister">Register</a></li>
+                 <li class="about"><a href="/about">About</a></li>
+                </ul>
+ 

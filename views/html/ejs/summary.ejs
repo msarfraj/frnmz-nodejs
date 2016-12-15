@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<% include header %>
+<body>
+<% include navbar %>
+<h2> <%= val.response%></h2>
+<p>User Summary(Latest transaction)</p>
+<div class="content">
+<table id="transsumry">
+<tr><th>Member</th><th>Last Contribution</th><th>Amount</th></tr>
+<%val.userdata.forEach(function(item) { %>
+     <tr><td><%= item.email %>
+     <script>
+	document.write('<a href="/getUser?' + '<%= item.email %>' + '">(view details)</a>');
+</script>
+	</td><td><%= item.amount %></td><td><%= item.lastpaid.toDateString() %></td><tr>
+    <% }); %>
+    
+ </table>   
+    </div>
+    <% include footer %>
+</body>
+</html>

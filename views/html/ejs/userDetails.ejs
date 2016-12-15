@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<% include header %>
+<body>
+<% include navbar %>
+<div class="content">
+<table id="t01">
+<tr><th>Name</th><th>email</th></tr>
+<%val.response.forEach(function(item) { %>
+     <tr><td><%= item.username %></td><td><%= item.email %></td><tr>
+    <% }); %>
+    
+ </table>   
+    </div>
+    <% include footer %>
+</body>
+</html>
