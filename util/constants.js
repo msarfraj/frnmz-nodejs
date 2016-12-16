@@ -14,15 +14,17 @@ exports.password = '182d894d';
 exports.database = 'heroku_9d88e519e560328';
 */
 //local
-/*exports.host = 'localhost';
+
+if(process.env.NODE_ENV==='development'){
+exports.host = 'localhost';
 exports.user = 'node_user';
 exports.password = 'node123';
 exports.database = 'node_test_db';
-*/
-//OC
-///*
+}else{
+//Openshift
 exports.host = '172.30.44.59';
 exports.user = 'nodeuser';
 exports.password = 'nodeuser';
 exports.database = 'nodetestdb';
-//*/
+}
+
