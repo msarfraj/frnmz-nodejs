@@ -4,19 +4,26 @@
 <body>
 <% include navbar %>
 <h2> <%= val.response%></h2>
-<p>User Summary(Latest transaction)</p>
 <div class="content">
-<table id="transsumry">
-<tr><th>Member</th><th>Last Contribution</th><th>Amount</th></tr>
+<p>User Summary(Latest transaction)</p>
+<div class="data">
+<div class="row">
+<div class="head_text">Member</div>
+<div class="head_text">Last Contribution</div>
+<div class="head_text">Amount</div>
+</div>
 <%val.userdata.forEach(function(item) { %>
-     <tr><td><%= item.email %>
+<div class="row">
+   <div class="data_text">  <%= item.email %>
      <script>
 	document.write('<a href="/getUser?' + '<%= item.email %>' + '">(view details)</a>');
 </script>
-	</td><td><%= item.amount %></td><td><%= item.lastpaid.toDateString() %></td><tr>
+</div>
+	<div class="data_text"><%= item.amount %></div> <div class="data_text"><%= item.lastpaid.toDateString() %></div>
+	</div>
     <% }); %>
     
- </table>   
+ </div>   
     </div>
     <% include footer %>
 </body>

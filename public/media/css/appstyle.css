@@ -27,6 +27,13 @@ div {
     display: table-cell;
     width: 50%;
 }
+.head_text{
+	display: table-cell;
+}
+.data_text{
+	display: table-cell;
+width:200px;	
+}
 h3   {color: blue;text-align:center;}
 h4 {padding-left:10px; }
 h2 {text-align:center; }

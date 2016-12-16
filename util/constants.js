@@ -20,7 +20,9 @@ exports.password = 'node123';
 exports.database = 'node_test_db';
 */
 //OC
+///*
 exports.host = '172.30.44.59';
 exports.user = 'nodeuser';
 exports.password = 'nodeuser';
 exports.database = 'nodetestdb';
+//*/

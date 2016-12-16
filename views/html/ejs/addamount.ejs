@@ -3,15 +3,28 @@
 <% include header %>
 <body>
 <% include navbar %>
+<div class="content">
+<p>Enter the details for adding Amount </p>
 <form action="/addamntdb" method="post">
-<h4>Enter the details for adding Amount </h4>
-<div class="addamnt">
-Email:<input type="text" name="email" class="inuid" />
-Date:<input type="date" name="addedon" class="inuid" />
-Amount:<input type="text" name="amount" class="inuid" />
-<input type="submit" value="Submit" class="inputsub">
+<div class="data">
+<div class="row">
+<div class="block_text">Email</div>
+<div class="block_input">
+<input type="text" name="email" />
+</div>
+</div>
+<div class="row">
+<div class="block_text">Date</div>
+<div class="block_input"> <input type="date" name="addedon" /></div>
+</div>
+<div class="row">
+<div class="block_text">Amount</div>
+<div class="block_input"> <input type="text" name="amount"/></div>
+</div>
+<span class="submit"><input type="submit" value="Submit"> </span>
 </div>
 </form>
+</div>
 <% include footer %>
 </body>
 </html>
