@@ -21,7 +21,7 @@ exports.password = 'node123';
 exports.database = 'node_test_db';
 */
 //OC
-exports.host = 'mysql://nodemysql:3306/';
+exports.host = '172.30.233.218';
 exports.user = 'nodeuser';
-exports.password = 'node@user';
+exports.password = 'nodeuser';
 exports.database = 'nodetestdb';
