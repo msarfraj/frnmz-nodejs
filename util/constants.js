@@ -1,4 +1,3 @@
-exports.root_url = "http://localhost:3500/";
 exports.min_vanity_length = 4;
 exports.num_of_urls_per_hour = 50;
 
