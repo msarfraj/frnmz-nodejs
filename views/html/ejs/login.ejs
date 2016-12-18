@@ -5,7 +5,7 @@
 	<% include navbar %>
 	<div class="content">
 	<p>Enter details to Login</p>
-		<form action="/login" method="post">
+		<form action="/login" method="post" onsubmit="return validateForm(this)">
 			<div class="data">
 				<div class="row">
 					<div class="block_text">Email Id</div>

@@ -5,7 +5,7 @@
 <% include navbar %>
 <div class="content">
 <p>Enter email to Remove a member </p>
-<form action="/removeme" method="post">
+<form action="/removeme" method="post" onsubmit="return validateForm(this)">
 <div class="data">
 <div class="row">
 <div class="data_text">

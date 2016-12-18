@@ -4,13 +4,18 @@
 <body>
 <% include navbar %>
 <div class="content">
-<table id="t01">
-<tr><th>Name</th><th>email</th></tr>
+<div class="data">
+<div class="row">
+<div class="head_text">Name</div>
+<div class="head_text">Email</div>
+</div>
 <%val.response.forEach(function(item) { %>
-     <tr><td><%= item.username %></td><td><%= item.email %></td><tr>
+<div class="row">
+   <div class="data_text"><%= item.username %> </div>
+     <div class="data_text"><%= item.email %></div>
+     </div>
     <% }); %>
-    
- </table>   
+ </div>   
     </div>
     <% include footer %>
 </body>

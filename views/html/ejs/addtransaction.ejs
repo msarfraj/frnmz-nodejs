@@ -5,7 +5,7 @@
 <% include navbar %>
 <div class="content">
 <p>Update for any spent </p>
-<form action="/updatetrans" method="post">
+<form action="/updatetrans" method="post" onsubmit="return validateForm(this)">
 <div class="data">
 <div class="row">
 <div class="block_text">Paid By(Email)</div>

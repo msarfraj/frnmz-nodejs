@@ -5,7 +5,7 @@
 <% include navbar %>
 <div class="content">
 <p>Enter the details for adding Amount </p>
-<form action="/addamntdb" method="post">
+<form action="/addamntdb" method="post" onsubmit="return validateForm(this)">
 <div class="data">
 <div class="row">
 <div class="block_text">Email</div>

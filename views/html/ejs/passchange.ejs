@@ -3,7 +3,7 @@
 <% include header %>
 <body>
 <% include navbar %>
-<form action="/api/chgpass" method="post">
+<form action="/api/chgpass" method="post" onsubmit="return validateForm(this)">
 <h4>Enter details to Change a password </h4>
 <div class="content">
 &nbsp;&nbsp;User ID :<input type="text" name="userid" class="inuid" />
