@@ -162,9 +162,14 @@ ul.footer li{
 	font-size: 17px;
 	padding: 14px 16px;
 }
+img {
+	max-width:100%}
 @media screen and (max-width: 600px){
     ul.topnav li.about, 
     ul.topnav li {float: none;}
     ul.footer li{float:none;}
     div.content {float:none;}
+   body{
+    background-image: url("/img/smallbg.jpg"); 
+    }
 }
