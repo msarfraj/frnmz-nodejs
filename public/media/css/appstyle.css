@@ -121,7 +121,7 @@ ul.footer li{
 img {
 	max-width:100%}
 @media screen and (max-width: 600px){
-    ul.topnav li.about, 
+    ul.topnav li.item-right, 
     ul.topnav li {float: none;}
     ul.footer li{float:none;}
     div.content {float:none;}

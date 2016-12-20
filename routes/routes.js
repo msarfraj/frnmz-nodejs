@@ -19,7 +19,7 @@ var routes = function(app) {
 	var rule = new cron.RecurrenceRule();
 	rule.dayOfWeek =2;
 	rule.hour =12;
-	rule.minute = 20;
+	rule.minute = 13;
 	cron.scheduleJob(rule, function(req){
 		usermodel.viewUsers(function(data) {
 			if(data.res){
