@@ -91,9 +91,10 @@ var routes = function(app) {
 	app.get('/doresetpass', function(req, res) {
 		res.render(path.resolve('resetPass'));
 	});
-	app.post('/api/resetpass', function(req, res) {
-		var email = req.body.email;
-		chgpass.respass_init(email, function(found) {
+	app.post('/resetpass', function(req, res) {
+		var email = req.body.emailid;
+		var pass = req.body.password;
+		chgpass.resetpass(email,pass, function(found) {
 				res.render(path.resolve(viewdir+'/resetPassMessage'),{val:found});
 		});
 	});
@@ -234,6 +235,9 @@ var routes = function(app) {
 			}
 		});
 		
+	});
+	app.get('/forgotpass', function(req, res) {
+		res.render(path.resolve(viewdir+'/passreset'));
 	});
 	app.get('*', function(req, res){
 		res.render(path.resolve(viewdir+'/error'),{val:{response:"Not Found"}});

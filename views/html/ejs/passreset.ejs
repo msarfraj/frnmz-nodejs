@@ -2,11 +2,11 @@
 <html lang="en">
 <% include header %>
 <body>
-	<% include navbar %>
-	<div class="content">
-	<p>Enter details to Login</p>
-		<form action="/login" method="post" onsubmit="return validateForm(this)">
-			<div class="data">
+<% include navbar %>
+<div class="content">
+<p>Enter details to reset a password </p>
+<form action="/resetpass" method="post" onsubmit="return validateForm(this)">
+<div class="data">
 				<div class="row">
 					<div class="block_text">Email Id</div>
 					<div class="block_input">
@@ -14,16 +14,16 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class='block_text'>Password</div>
+					<div class='block_text'> New Password</div>
 					<div class='block_input'>
 						<input type="password" name="password" />
 					</div>
 				</div>
-				<span class="submit"><input type="submit" value="Submit"></span>
 				</div>
-		</form>
-		<a href="/forgotpass">Forgot Password?</a>
-	</div>
-</body>
+				<span class="submit"><input type="submit" value="Reset Password"></span>
+				</form>
+</div>
+
 <% include footer %>
+</body>
 </html>

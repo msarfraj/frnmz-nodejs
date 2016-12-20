@@ -26,24 +26,21 @@ var smtpTransport = nodemailer.createTransport({
     ignoreTLS: true,
 })
 ;
-exports.cpass = function(id,opass,npass,callback) {
-	var get_user_Query='SELECT * FROM user_data WHERE userid ='+'"'+id+'"';
+exports.resetpass = function(emailid,pass,callback) {
+	var get_user_Query='SELECT * FROM user_data WHERE email ='+'"'+emailid+'"';
 	connection.query(get_user_Query,function(err,result){
 		if(err){
-			throw err;
+			callback({'response':"DB:Error while Querying for:user_date *",'res':false});
 		}else{
-			if(result.length>0&&result[0].userid==id){
-				if(result[0].password==opass){
-					var update_password_query='UPDATE user_data SET password='+'"'+npass+'" WHERE userid='+'"'+id+'"';
+			if(result.length>0&&result[0].email==emailid){
+					var update_password_query='UPDATE user_data SET password='+'"'+pass+'" WHERE email='+'"'+emailid+'"';
 				connection.query(update_password_query,function(err,result){
 					if(err){
-						throw err;
+						callback({'response':"DB:Error while updating pass for:user_data *"+emailid,'res':false});
 					}else{
 						callback({'response':"Password Sucessfully Changed",'res':true});
 					}
-				});}else{
-				callback({'response':"Passwords do not match. Try Again !",'res':false});
-			}
+				});
 			}else{
 				callback({'response':"Unable to find user !",'res':false});
 			}

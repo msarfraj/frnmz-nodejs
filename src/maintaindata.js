@@ -59,6 +59,12 @@ exports.maintaindata = function(confirmedby, date, callback) {
 												});
 
 							} else {
+								if(result[0].emaillist.includes(confirmedby)){
+									callback({
+										'response' : "Response Already registered.",
+										'res' : true
+									});
+								}else{
 								var count = result[0].count + 1;
 								var emailstring = result[0].emaillist +","+ confirmedby;
 								var updaterow = 'UPDATE  person_count set count="'
@@ -85,6 +91,7 @@ exports.maintaindata = function(confirmedby, date, callback) {
 														});
 													}
 												});
+							}
 							}
 						}
 					});
