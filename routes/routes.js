@@ -19,8 +19,10 @@ var routes = function(app) {
 	var rule = new cron.RecurrenceRule();
 	rule.dayOfWeek =2;
 	rule.hour =12;
-	rule.minute = 13;
+	rule.minute = 30;
+	console.log("Shecduling mail job on :"+new Date()+"12:30");
 	cron.scheduleJob(rule, function(req){
+		console.log("Running mail job on :"+new Date());
 		usermodel.viewUsers(function(data) {
 			if(data.res){
 				maintaindata.sendnotification(data.response,function(data){
