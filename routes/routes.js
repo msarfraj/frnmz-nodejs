@@ -10,8 +10,28 @@ var trans=require('../src/trans');
 var usermodel=require('../src/viewUsers');
 var user = require('../src/user');
 var history = require('../src/userhistory');
+var maintaindata = require('../src/maintaindata');
+var cron = require('node-schedule');
+var os = require("os");
+var dateFormat = require('dateformat');
 var routes = function(app) {
 	var viewdir='views/html/ejs';
+	var rule = new cron.RecurrenceRule();
+	rule.dayOfWeek =2;
+	rule.hour =12;
+	rule.minute = 20;
+	cron.scheduleJob(rule, function(req){
+		usermodel.viewUsers(function(data) {
+			if(data.res){
+				maintaindata.sendnotification(data.response,function(data){
+					console.log("sent email data"+data.response);
+				});
+			}
+		});
+		
+	});
+		
+	
 	app.get('/', function(req, res) {
 		res.render(path.resolve(viewdir+'/home'));
 	});
@@ -136,9 +156,9 @@ var routes = function(app) {
 		if(req.session.user){
 			usermodel.viewUsers(function(data) {
 			if(data.res){
-				res.render(path.resolve(viewdir+'/userDetails'),{val:data,session: req.session});
+				res.render(path.resolve(viewdir+'/userDetails'),{val:data});
 			}else{
-				res.render(path.resolve(viewdir+'/error'),{val:data,session: req.session});
+				res.render(path.resolve(viewdir+'/error'),{val:data});
 			}
 		});
 		}else{
@@ -163,9 +183,9 @@ var routes = function(app) {
 		if(req.session.user){
 			history.history(email ,function(data) {
 			if(data.res){
-				res.render(path.resolve(viewdir+'/userHistory'),{val:data,session: req.session});
+				res.render(path.resolve(viewdir+'/userHistory'),{val:data});
 			}else{
-				res.render(path.resolve(viewdir+'/error'),{val:data,session: req.session});
+				res.render(path.resolve(viewdir+'/error'),{val:data});
 			}
 		});
 		}else{
@@ -175,6 +195,43 @@ var routes = function(app) {
 	app.get('/logout', function(req, res) {
 		req.session.user=false;
 		res.render(path.resolve(viewdir+'/logout'));
+	});
+	app.get('/confirm', function(req, res) {
+		var d=new Date();
+		var day=dateFormat(d, "yyyy-mm-dd");
+		var confirmedby=req.url.split('?')[1];
+		 maintaindata.maintaindata(confirmedby,day ,function(data) {
+			if(data.res){
+				res.render(path.resolve(viewdir+'/confermedsuccess'),{val:data});
+			}else{
+				res.render(path.resolve(viewdir+'/error'),{val:data});
+			}
+		});
+		
+	});
+	app.get('/totalcount', function(req, res) {
+		var d=new Date();
+		var day=dateFormat(d, "yyyy-mm-dd");
+		 maintaindata.totalcount(day ,function(data) {
+			if(data.res){
+				res.render(path.resolve(viewdir+'/responses'),{val:data});
+			}else{
+				res.render(path.resolve(viewdir+'/error'),{val:data});
+			}
+		});
+		
+	});
+	app.get('/viewresponses', function(req, res) {
+		var d=new Date();
+		var day=dateFormat(d, "yyyy-mm-dd");
+		maintaindata.viewMembers(day,function(data) {
+			if(data.res){
+				res.render(path.resolve(viewdir+'/responseList'),{val:data});
+			}else{
+				res.render(path.resolve(viewdir+'/error'),{val:data});
+			}
+		});
+		
 	});
 	app.get('*', function(req, res){
 		res.render(path.resolve(viewdir+'/error'),{val:{response:"Not Found"}});

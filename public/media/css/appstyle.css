@@ -57,51 +57,7 @@ a#updatelink{color:black;display:block;}
 .userlog{
 float:right;	
 }
-.inputbox{
-	margin-top:5px;
-	margin-left:20px;
-}
-.inputpas{
-	margin-left:14px;
-}
-.inputnm{
-	margin-left:33px;
-}
-.inputsub{
-	margin-left:130px;
-	margin-top:10px;
-}
-.userreg{
-	border:1px groove blue;
-	width: 400px;
-	height: 125px;
-	margin:5px;
-}
-.inuid{
-	margin-top:5px;
-	margin-left:70px;
-}
-.innewpas{
-	margin-left:27px;
-}
-.inexpas{
-	margin-left:0px;
-}
-#userdetail{
-	border:1px groove blue;
-	width: 360px;
-	margin:5px;
-}
-.addamnt{
-border:1px groove blue;
-	width: 500px;
-	margin:5px;	
-}
 
-table#transsumry {
-	align:center;
-	background-color: #f1f1c1;
-}
 #userhistory{
 	border:1px groove black;
 	width: 360px;
@@ -128,7 +84,7 @@ ul.topnav li {
 li:last-child {
     border-right: none;
 }
-ul.topnav li.about {
+ul.topnav li.item-right {
     float: right;
 }
 ul.topnav li.icon {display: none;}
