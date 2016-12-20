@@ -18,8 +18,8 @@ var routes = function(app) {
 	var viewdir='views/html/ejs';
 	var rule = new cron.RecurrenceRule();
 	rule.dayOfWeek =2;
-	rule.hour =12;
-	rule.minute = 42;
+	rule.hour =11;
+	rule.minute = 46;
 	console.log("Shecduling mail job on :"+new Date()+"12:30");
 	cron.scheduleJob(rule, function(req){
 		console.log("Running mail job on :"+new Date());
