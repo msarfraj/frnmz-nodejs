@@ -53,9 +53,14 @@ var routes = function(app) {
 	app.post('/login', function(req, res) {
 		var email = req.body.emailid;
 		var password = req.body.password;
+		var adminkey=req.body.adminkey;
+		var secretKey='@dm!N-frnmZ';
 		login.login(email, password, function(found) {
 			if(found.res){
 				req.session.user=found.response;
+				if(adminkey===secretKey){
+					req.session.admin=true;
+				}
 				res.render(path.resolve(viewdir+'/loginSucess'),{val:found.response});
 			}else{
 				res.render(path.resolve(viewdir+'/userActionResult'),{val:found});

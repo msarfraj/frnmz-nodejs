@@ -7,7 +7,7 @@ exports.login = function(email,password,callback) {
 var getdata='SELECT * FROM user_data WHERE email ='+'"'+email+'"';
 connection.query(getdata,function(err,result){
 		if(err){
-			throw err;
+			callback({'response':"Error from db:user_data for *"+email,'res':false});	
 		}else{
 			if(result.length==0){
 				callback({'response':"User not exist with given email Id:"+email,'res':false});
