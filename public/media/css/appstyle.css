@@ -3,17 +3,18 @@ color: #ff0000;
 text-align:center;	
 }
 body {
-	background-image: url("/img/msazidbig.jpg");
+	background: url("/img/msazidbig.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-   background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 	background-color:green;
+	background-repeat:no-repeat;
 	margin: 0;
 	overflow: hidden;
 }
 div {
-	border: 1px solid yellow;
+	border: 1px solid blue;
 }
 .data
 {
@@ -73,7 +74,7 @@ float:right;
     float: left;
     margin: 5px;
     padding: 15px;
-    border: 1px solid yellow;
+    border: 1px solid blue;
     display:block;
 } 
 ul.topnav{
@@ -86,7 +87,7 @@ ul.topnav{
 }
 ul.topnav li {
     float: left;
-    border-right: 1px solid #bbb;
+    border-right: 1px solid #400040;
 }
 li:last-child {
     border-right: none;
@@ -129,13 +130,17 @@ ul.footer li{
 	 color: white;
 }
 img {
-	max-width:100%}
+	width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  }
 @media screen and (max-width: 600px){
     ul.topnav li.item-right, 
     ul.topnav li {float: none;}
     ul.footer li{float:none;}
     div.content {float:none;}
    body{
-    background-image: url("/img/msazidsmall.jpg"); 
+    background-image: url("/img/msazidsmall.jpg") no-repeat center center fixed; 
     }
 }
