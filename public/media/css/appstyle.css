@@ -141,6 +141,6 @@ img {
     ul.footer li{float:none;}
     div.content {float:none;}
    body{
-    background-image: url("/img/msazidsmall.jpg") no-repeat center center fixed; 
+    background: url("/img/msazidsmall.jpg") no-repeat center center fixed; 
     }
 }
