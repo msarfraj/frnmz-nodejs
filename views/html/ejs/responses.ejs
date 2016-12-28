@@ -11,11 +11,20 @@
 <div class="head_text">Date</div>
 <div class="head_text">Count</div>
 </div>
+<% if(today){%>
+<div class="row">
+   <div class="data_text">Today</div>
+   <div class="data_text">No responses</div>
+</div>
+<% } %>
 <%val.data.forEach(function(item) { %>
 <div class="row">
    <div class="data_text">  <%= item.eventday.toDateString() %>
 </div>
-	<div class="data_text"><a href="/viewresponses?"><%= item.count %>(view all)</a>
+	<div class="data_text">
+	<script>
+	document.write('<a href="/viewresponses?' + '<%= item.eventday.toDateString() %>' + '"><%= item.count %>(view all)</a>');
+</script>
 	</div>
 	</div>
     <% }); %>

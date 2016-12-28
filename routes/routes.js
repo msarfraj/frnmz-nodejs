@@ -17,9 +17,9 @@ var dateFormat = require('dateformat');
 var routes = function(app) {
 	var viewdir='views/html/ejs';
 	var rule = new cron.RecurrenceRule();
-	rule.dayOfWeek =5;
-	rule.hour =5;
-	rule.minute = 0;
+	rule.dayOfWeek =3;
+	rule.hour =13;
+	rule.minute = 30;
 	console.log("Shecduling mail job on :"+new Date());
 	cron.scheduleJob(rule, function(req){
 		console.log("Running mail job on :"+new Date());
@@ -74,7 +74,8 @@ var routes = function(app) {
 		var email = req.body.email;
 		var name = req.body.name;
 		var password=req.body.password;
-		register.register(name,email,password, function(found) {
+		var number=req.body.cellno;
+		register.register(name,email,password,number, function(found) {
 			if(found.res){
 				res.render(path.resolve(viewdir+'/regSucess'),{val:found});
 			}else{
@@ -105,7 +106,6 @@ var routes = function(app) {
 	});
 
 	app.post('/api/resetpass/chg', function(req, res) {
-
 		var email = req.body.email;
 		var code = req.body.code;
 		var npass = req.body.newpass;
@@ -176,8 +176,8 @@ var routes = function(app) {
 	app.get('/removemember', function(req, res) {
 		res.render(path.resolve(viewdir+'/removeMember'),{val:req.session.user,session: req.session});
 	});
-	app.post('/removeme', function(req, res) {
-		var email = req.body.email;
+	app.get('/removeme', function(req, res) {
+		var email=req.url.split('?')[1];
 		if(req.session.user&&req.session.user.email==email){
 			res.render(path.resolve(viewdir+'/userActionResult'),{val:{'response':'Logged in User cannot be removed.'}});
 		}else{
@@ -222,7 +222,12 @@ var routes = function(app) {
 		var day=dateFormat(d, "yyyy-mm-dd");
 		 maintaindata.totalcount(day ,function(data) {
 			if(data.res){
-				res.render(path.resolve(viewdir+'/responses'),{val:data});
+				var firstDate=dateFormat(data.data[0].eventday, "yyyy-mm-dd");
+				var today=false;
+				if(firstDate!==day){
+					today=true;
+				}
+				res.render(path.resolve(viewdir+'/responses'),{val:data,today:today});
 			}else{
 				res.render(path.resolve(viewdir+'/error'),{val:data});
 			}
@@ -230,7 +235,8 @@ var routes = function(app) {
 		
 	});
 	app.get('/viewresponses', function(req, res) {
-		var d=new Date();
+		var url=decodeURIComponent(req.url);
+		var d=url.split('?')[1];
 		var day=dateFormat(d, "yyyy-mm-dd");
 		maintaindata.viewMembers(day,function(data) {
 			if(data.res){

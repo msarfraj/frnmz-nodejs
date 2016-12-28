@@ -133,12 +133,8 @@ exports.sendnotification = function(emailList, callback) {
 }
 
 exports.totalcount = function(date, callback) {
-	var getdata = 'SELECT * FROM person_count WHERE eventday =' + '"' + date
-			+ '"';
-	connection
-			.query(
-					getdata,
-					function(err, result) {
+	var getdata = 'SELECT * FROM person_count order by eventday DESC';
+	connection.query(getdata,function(err, result) {
 						if (err) {
 							callback({
 								'response' : "DB error while getting data from table:person_count",
@@ -146,17 +142,13 @@ exports.totalcount = function(date, callback) {
 							});
 						} else {
 							if (result.length == 0) {
-								callback({
-									'data' : "No responses yet",
+								callback({'data' : "No responses yet",
 									'res' : true,
-									'resp':false
-								});
+									'resp':false});
 							} else {
-								callback({
-									'data' : result,
+								callback({'data' : result,
 									'res' : true,
-									'resp':true
-								});
+									'resp':true});
 
 							}
 						}
@@ -164,29 +156,38 @@ exports.totalcount = function(date, callback) {
 }
 
 exports.viewMembers = function(date, callback) {
-	var getdata = 'SELECT * FROM person_count WHERE eventday =' + '"' + date
-			+ '"';
-	connection
-			.query(
-					getdata,
-					function(err, result) {
+	var getdata = 'SELECT * FROM person_count WHERE eventday =' + '"' + date+ '"';
+	connection.query(getdata,function(err, result) {
 						if (err) {
-							callback({
-								'response' : "DB error while getting data from table:person_count",
-								'res' : false
-							});
+							callback({'response' : "DB error while getting data from table:person_count",
+								'res' : false});
 						} else {
 							if (result.length == 0) {
-								callback({
-									'response' : "No responses yet",
-									'res' : true
-								});
+								callback({'response' : "No responses yet",
+									'res' : true});
 							} else {
-								callback({
-									'response' : result[0].emaillist,
-									'res' : true
-								});
-
+								var users=[];
+								var emailArr=[];
+								var userArr=result[0].emaillist.split(',');
+								var i=0;
+									userArr.forEach(function(useremail) {
+										emailArr.push("'"+useremail+"'");
+									});
+										var getmobile = 'SELECT * FROM user_data WHERE email in (' +[emailArr]+ ')';
+										var eachUser=[];
+										connection.query(getmobile,function(err, mobileresult) {
+													if (err) {
+														callback({'response' : "DB error while getting data from table:user_data",
+															'res' : false});
+													}else{
+														if(mobileresult.length>0){
+															callback({
+																'response' : mobileresult,
+																'res' : true
+															});
+														}
+													}});
+										users[i]=eachUser;
 							}
 						}
 					});

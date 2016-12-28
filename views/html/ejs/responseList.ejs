@@ -5,7 +5,26 @@
 <% include navbar %>
 
 <div class="content">
- <p> <%= val.response%></p>
+ <p>Response From</p>
+<div class="data">
+<div class="row">
+<div class="head_text">Name</div>
+<div class="head_text">Mobile</div>
+</div>
+<%val.response.forEach(function(item) { %>
+<div class="row">
+   <div class="data_text">  <%= item.email %>
+    
+</div>
+	<div class="data_text">
+	 <script>
+	document.write('<a href="tel:' + '<%= item.mobile %>' + '">Call</a>');
+</script>
+	</div> 
+	</div>
+    <% }); %>
+    
+ </div>
     </div>
     <% include footer %>
 </body>

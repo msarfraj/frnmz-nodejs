@@ -1,6 +1,6 @@
-#topbar {background-color: powderblue;
-padding:10px;
-border: 1px solid red;
+a{
+color: #ff0000;
+text-align:center;	
 }
 body {
 	background-image: url("/img/msnabwi.jpg");

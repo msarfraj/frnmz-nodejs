@@ -12,7 +12,11 @@
 <%val.response.forEach(function(item) { %>
 <div class="row">
    <div class="data_text"><%= item.username %> </div>
-     <div class="data_text"><%= item.email %></div>
+     <div class="data_text"><%= item.email %>
+     <script>
+	document.write('<a href="/removeme?' + '<%= item.email %>' + '">Delete</a>');
+</script>
+     </div>
      </div>
     <% }); %>
  </div>   
