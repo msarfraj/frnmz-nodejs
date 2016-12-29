@@ -131,12 +131,6 @@ ul.footer li{
 	padding: 5px 16px;
 	 color: white;
 }
-img {
-	width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  }
  input{
  height: 100%;
  }
@@ -147,6 +141,6 @@ img {
     div.content {float:none;}
    body{ 
     background: url("/img/msazidsmall.jpg") no-repeat center center fixed; 
-    background-position:100% 100%;
+    background-size: cover;
    }
 }
