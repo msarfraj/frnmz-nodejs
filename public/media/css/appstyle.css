@@ -147,5 +147,6 @@ img {
     div.content {float:none;}
    body{ 
     background: url("/img/msazidsmall.jpg") no-repeat center center fixed; 
+    background-position:100% 100%;
    }
 }
