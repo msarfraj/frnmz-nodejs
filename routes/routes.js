@@ -79,7 +79,7 @@ var routes = function(app) {
 			if(found.res){
 				res.render(path.resolve(viewdir+'/regSucess'),{val:found});
 			}else{
-				res.render(path.resolve(viewdir+'/error'),{val:data});
+				res.render(path.resolve(viewdir+'/error'),{val:found});
 			}
 		});
 	});
