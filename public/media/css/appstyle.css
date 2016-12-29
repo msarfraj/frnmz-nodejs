@@ -8,14 +8,11 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-	background-color:green;
 	background-repeat:no-repeat;
 	margin: 0;
 	overflow: hidden;
 }
-div {
-	border: 1px solid blue;
-}
+
 .data
 {
     display: table;
@@ -29,19 +26,24 @@ div {
 	text-align:center;
     display: table-cell;
     width: 50%;
+    border: 1px solid blue;
 }
 .block_input
 {
     display: table-cell;
     width: 50%;
+    border: 1px solid blue;
 }
 .head_text{
 	display: table-cell;
+	text-align:center;
+	border: 1px solid blue;
 }
 .data_text{
 	display: table-cell;
-width:200px;
-color: yellow;	
+color: yellow;
+text-align:center;	
+border: 1px solid blue;
 }
 h3   {color: blue;text-align:center;}
 h4 {padding-left:10px; }
@@ -71,11 +73,11 @@ float:right;
 	margin:5px;
 }
 .content {
-    float: left;
-    margin: 5px;
-    padding: 15px;
+    float: none;
+    padding: 5px;
     border: 1px solid blue;
     display:block;
+    max-width:600px;
 } 
 ul.topnav{
     list-style-type: none;
@@ -135,12 +137,15 @@ img {
   top: 0;
   left: 0;
   }
+ input{
+ height: 100%;
+ }
 @media screen and (max-width: 600px){
     ul.topnav li.item-right, 
     ul.topnav li {float: none;}
     ul.footer li{float:none;}
     div.content {float:none;}
-   body{
-    background: url("/img/msazidsmall.jpg") no-repeat center center fixed; 
-    }
+/*    body{ */
+/*     background: url("/img/msazidsmall.jpg") no-repeat center center fixed;  */
+/*     } */
 }
