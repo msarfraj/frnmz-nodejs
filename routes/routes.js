@@ -61,7 +61,7 @@ var routes = function(app) {
 				if(adminkey===secretKey){
 					req.session.admin=true;
 				}
-				res.render(path.resolve(viewdir+'/loginSucess'),{val:found.response});
+				res.render(path.resolve(viewdir+'/home'),{val:found.response});
 			}else{
 				res.render(path.resolve(viewdir+'/userActionResult'),{val:found});
 			}

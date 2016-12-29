@@ -5,12 +5,16 @@
 <% include navbar %>
 <div class="content">
 <% if(request.session.user){ %>
-<a href="/dologin">View/Update</a>
+<% if(request.session.admin){ %>
+<a id="updatelink" href="/addamount">Add Amount</a>
+<a id="updatelink" href="/addtransaction">Add Spent</a>
+<%}%>
+<a id="updatelink" href="/viewsummary">View Summary</a>
+<a id="updatelink" href="/addmember">Add A Member</a>
+<a id="updatelink" href="/viewAll">Viw All Members</a>
 <% }else{ %>
 <a href="/dologin">Login</a>
 <% } %>
-<a href="/doregister">Register A member</a>
-
 </div>
 <% include footer %>
 </body>
