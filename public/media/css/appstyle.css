@@ -45,7 +45,7 @@ color: yellow;
 text-align:center;	
 border: 1px solid blue;
 }
-h3   {color: blue;text-align:center;}
+
 h4 {padding-left:10px; }
 h2 {text-align:center; }
 p {
@@ -54,8 +54,9 @@ p {
 a {
 	display:block;
 }
-a#homeLink {color:blue;}
-a#updatelink{color:black;display:block;}
+.home {
+	display:inline;
+	}
 .submit{
 	padding-left:50px;
 	display:block;}
