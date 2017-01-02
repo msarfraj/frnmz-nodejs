@@ -1,9 +1,9 @@
-<ul class="topnav">
+<ul class="topnav" id="myTopnav">
 <li> <a class="active" href="/">FRNMZ</a></li>
                 <li ><a href="/doregister">Register</a></li>
                  <li ><a href="/about">About</a></li>
                  <li ><a href="/totalcount">View Responses</a></li>
-                <li class="item-right">
+                <li >
                 
 <% if(request.session.user){ %>
 <a href="/logout">Logout <%=request.session.user.username%> </a>
@@ -11,6 +11,9 @@
 <a href="/dologin">Login</a>
 <% } %>
 </li>
+<li class="icon">
+    <a href="javascript:void(0);" onclick="myFunction()">☰</a>
+  </li>
                 </ul>
 <!-- <button onclick="notifyMe()">Notify me!</button> -->
  

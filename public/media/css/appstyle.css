@@ -1,6 +1,7 @@
 a{
 color: #ff0000;
 text-align:center;	
+display:block;
 }
 body {
 	background: url("/img/msazidbig.jpg") no-repeat center center fixed;
@@ -12,7 +13,6 @@ body {
 	margin: 0;
 	overflow: hidden;
 }
-
 .data
 {
     display: table;
@@ -51,28 +51,10 @@ h2 {text-align:center; }
 p {
 	padding-left:10px;
 }
-a {
-	display:block;
-}
-.home {
-	display:inline;
-	}
+
 .submit{
 	padding-left:50px;
 	display:block;}
-.login {
-	align:center;
-	background-color: #f1f1c1;
-	}
-.userlog{
-float:right;	
-}
-
-#userhistory{
-	border:1px groove black;
-	width: 360px;
-	margin:5px;
-}
 .content {
     float: none;
     padding: 5px;
@@ -105,8 +87,10 @@ ul.topnav li a {
     text-align: center;
     padding: 10px 16px;
     text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
 }
-ul.topnav li a:hover:not {
+ul.topnav li a:hover {
     background-color: blue;
 }
 ul.topnav li a.active {
@@ -135,9 +119,32 @@ ul.footer li{
  input{
  height: 100%;
  }
-@media screen and (max-width: 600px){
+ 
+ @media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 680px){
+	ul.topnav.responsive {position: relative;}
+	ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
     ul.topnav li.item-right, 
-    ul.topnav li {float: none;}
+    ul.topnav li {float: left;}
     ul.footer li{float:none;}
     div.content {float:none;}
    body{ 
