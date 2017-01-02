@@ -110,3 +110,30 @@ function validateLogin(formData){
     }
 	
 }
+function validateFeedback(fromData){
+	if (formData.email.value == "") {
+        alert("You Must fill the Email");
+        formData.email.focus();
+        return false;
+    }else{
+    	var x=formData.email.value;
+    	 var atpos = x.indexOf("@");
+    	    var dotpos = x.lastIndexOf(".");
+    	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+    	        alert("Not a valid e-mail address");
+    	        formData.email.focus();
+    	        return false;
+    	    }
+    }
+	if (formData.name.value == "") {
+        alert("You Must Enter Your Name");
+        formData.name.focus();
+        return false;
+    }
+	if (formData.comment.value == "") {
+        alert("Your Feedback missing");
+        formData.comment.focus();
+        return false;
+    }
+	
+}

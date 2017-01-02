@@ -11,6 +11,7 @@ var usermodel=require('../src/viewUsers');
 var user = require('../src/user');
 var history = require('../src/userhistory');
 var maintaindata = require('../src/maintaindata');
+var feedback = require('../src/feedback');
 var cron = require('node-schedule');
 var os = require("os");
 var dateFormat = require('dateformat');
@@ -36,6 +37,21 @@ var routes = function(app) {
 	
 	app.get('/', function(req, res) {
 		res.render(path.resolve(viewdir+'/home'));
+	});
+	app.get('/about', function(req, res) {
+		res.render(path.resolve(viewdir+'/about'));
+	});
+	app.get('/feedback', function(req, res) {
+		res.render(path.resolve(viewdir+'/feedback'));
+	});
+	app.post('/postfeedback', function(req, res) {
+		var email = req.body.email;
+		var name = req.body.name;
+		var comment=req.body.comment;
+		feedback.feedbackemail(name,email,comment,function(data){
+			res.render(path.resolve(viewdir+'/error'),{val:data});
+		});
+		
 	});
 	app.get('/dologin', function(req, res) {
 		if(req.session.user){
