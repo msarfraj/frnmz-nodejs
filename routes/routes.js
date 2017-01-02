@@ -168,6 +168,7 @@ var routes = function(app) {
 		var trandate = req.body.spenton;
 		var amount = req.body.amount;
 		var email = req.body.email;
+		console.log(trandate);
 		addamnt.updateamount(trandate, amount,email, function(data) {
 			if(data.res){
 				res.render(path.resolve(viewdir+'/transuccess'),{val:data,session: req.session});
