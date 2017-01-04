@@ -100,7 +100,7 @@ exports.sendnotification = function(emailList, callback) {
 	var email = 'msarfraj@sapient.com';
 	var frommail = '"Mohd Sarfraj ?" <msarfraj@sapient.com>';
 	var subject = "Who all will join to Mosque for Friday Prayer?";
-	var messagebody = "<p>Assalamo Alaikum, <br>Please confirm your availability for Namaz,by clicking the <a href='http://frnmz-frnmz.44fs.preview.openshiftapps.com/confirm?";
+	var messagebody = "<p>Assalamo Alaikum, <br>Please confirm your availability for Namaz,by clicking the <a href='https://frnmz-frnmz.44fs.preview.openshiftapps.com/confirm?";
 	if(process.env.NODE_ENV=="development"){
 	messagebody = "<p>Assalamo Alaikum, <br>Please confirm your availability for Namaz,by clicking the <a href='http://localhost:8080/confirm?";
 	}
